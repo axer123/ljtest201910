@@ -133,8 +133,20 @@ for i in xx:
     
 '''
 
-import time
+# import time
 
-for i in range(10):
-    print("哈哈哈哈")
-    time.sleep(1)
+# for i in range(10):
+#     print("哈哈哈哈")
+#     time.sleep(1)
+
+
+jixu = True
+
+while jixu:
+    a = input("请输入一个数字：")
+    a = int(a)
+    if type(a) == int or type(a) == float:
+        print("数字")
+        jixu = False
+    else:
+        print("非数字")
