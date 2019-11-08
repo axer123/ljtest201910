@@ -23,12 +23,19 @@ for i in res:
 
     # 2.2 构造请求，所有的请求数据，都是通过excel里面动态读取出来的
     r = requests.request(method=method, url=url, json=data)
+    # 疑问1：如果是get方法怎么去处理参数
+    # 疑问2：如果是post方法的form-data格式的参数，又怎么处理？
+    # 疑问3：断言引擎的优化
+    # 疑问4：测试用例的设计，如果设计到测试步骤，那怎么处理？接口之间的关联。
 
-    # 2.3 断言http响应状态码
-    assert r.status_code == http_code
+    try:
+        # 2.3 断言http响应状态码
+        assert r.status_code == http_code
+        # 2.4 断言返回值
+        assert result_code in r.text
 
-    # 2.4 断言返回值
-    assert result_code in r.text
+        print("测试用例【{}】执行通过".format(case_name))
+    except:
+        print("测试用例【{}】执行失败".format(case_name))
 
-    print("测试用例【{}】执行通过".format(case_name))
     print("=====================================")
