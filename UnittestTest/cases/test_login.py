@@ -6,11 +6,12 @@ import unittest
 from selenium import webdriver
 
 # 1. 测试用例必须继承unittest.TestCase
+@unittest.skip("!23123")
 class TestCaseLogin(unittest.TestCase):
 
     # 2. 成员方法名字以test_
     def test_01_login_success(self):
-        chromedriver = 'C:\\Users\\SNake\\VSCodeProjects\\ljtest201910\\UnittestTest\\driver\\chromedriver.exe'
+        chromedriver = 'driver\\chromedriver.exe'
         driver = webdriver.Chrome(executable_path=chromedriver)  # 实例化浏览器 - 打开浏览器获得操作对象
         driver.maximize_window()
         driver.get("http://132.232.44.158:9999/shopxo/admin.php")   # 打开网址
@@ -40,4 +41,4 @@ class TestCaseLogin(unittest.TestCase):
 
 
 # unittest自带的运行方法，不用实例化类的方法
-unittest.main()
+# unittest.main()
